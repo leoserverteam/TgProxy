@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  mtproto-proxy:
+    image: telegrammessenger/proxy
+    container_name: mtproto-proxy
+    restart: always
+    ports:
+      - "443:443" # Порт, который будет использовать прокси
+    volumes:
+      - proxy-config:/data
+    environment:
+      # Если оставить пустым, секрет сгенерируется автоматически
+      - SECRET=
+      # Рекомендуется для работы через прокси-серверы
+      - WORKERS=1
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  proxy-config:
