@@ -4,7 +4,7 @@ services:
     container_name: mtproto-proxy
     restart: always
     ports:
-      - "8444:443" # Порт, который будет использовать прокси
+      - "8443:443" # Порт, который будет использовать прокси
     volumes:
       - proxy-config:/data
     environment:
