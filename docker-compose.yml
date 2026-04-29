@@ -6,7 +6,7 @@ services:
     container_name: mtproto-proxy
     restart: always
     ports:
-      - "8444:443"
+      - "8443:443"
     environment:
       - SECRET=
       - IP=109.195.103.194
