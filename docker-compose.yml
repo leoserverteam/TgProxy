@@ -4,19 +4,10 @@ services:
     container_name: mtproto-proxy
     restart: always
     ports:
-      - "8443:443" # Порт, который будет использовать прокси
+      - "8443:443"
+    environment:
+      - SECRET=
+      - IP=109.195.103.194
+      - AES_ONLY=1
     volumes:
       - proxy-config:/data
-    environment:
-      # Если оставить пустым, секрет сгенерируется автоматически
-      - SECRET=
-      # Рекомендуется для работы через прокси-серверы
-      - WORKERS=1
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
-
-volumes:
-  proxy-config:
