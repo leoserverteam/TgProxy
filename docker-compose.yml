@@ -1,13 +1,19 @@
+version: '3.8'
+
 services:
   mtproto-proxy:
     image: telegrammessenger/proxy
     container_name: mtproto-proxy
     restart: always
     ports:
-      - "8443:443"
+      - "8444:443"
     environment:
       - SECRET=
       - IP=109.195.103.194
       - AES_ONLY=1
     volumes:
       - proxy-config:/data
+
+volumes:
+  proxy-config:
+
