@@ -1,19 +1,11 @@
-version: '3.8'
-
+version: '3'
 services:
-  mtproto:
+  tg_proxy:
     image: nineseconds/mtg:2
     container_name: tg_proxy
     restart: unless-stopped
     ports:
       - "8443:3128"
-    command: 
-      - "simple-run"
-      - "-n"
-      - "1.1.1.1"
-      - "-i"
-      - "prefer-ipv4"
-      - "0.0.0.0:3128"
-      - "${TG_SECRET}"
+    command: simple-run -n 1.1.1.1 -t google.com 0.0.0.0:3128 ${TG_SECRET}
 
 
