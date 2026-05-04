@@ -6,4 +6,8 @@ services:
     restart: unless-stopped
     ports:
       - "8443:3128"
-    command: run -s "${TG_SECRET}" -a 0.0.0.0:3128
+    environment:
+      - MTG_SECRET=${TG_SECRET}
+      - MTG_BIND_ADR=0.0.0.0:3128
+    command: run
+
