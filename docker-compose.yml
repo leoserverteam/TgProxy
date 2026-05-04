@@ -6,6 +6,7 @@ services:
     restart: unless-stopped
     ports:
       - "8443:3128"
-    command: simple-run -n 1.1.1.1 -t google.com 0.0.0.0:3128 ${TG_SECRET}
+    command: run "${TG_SECRET}"
+
 
 
