@@ -10,4 +10,4 @@ jobs:
     uses: leoserverteam/DevOpsTemplates/.github/workflows/onlycompose.yml@main
     with:
       project_name: "mtp-proxy"
-      extra-files: "telemt-config"
+      extra_files: "telemt-config"
