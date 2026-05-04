@@ -1,0 +1,11 @@
+[access.users]
+# Замените на свой сгенерированный ключ (openssl rand -hex 16)
+my_user = "7ac7ff49eabcbd7654bcbcaf47d2a9d7"
+
+[network]
+# Внутренний порт контейнера
+listen = "0.0.0.0:443"
+
+# Опционально: маскировка под домен (Fake TLS)
+[protocols.faketls]
+domain = "google.com"

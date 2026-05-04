@@ -1,13 +1,14 @@
-version: '3'
 services:
-  tg_proxy:
-    image: nineseconds/mtg:2
-    container_name: tg_proxy
+  telemt:
+    image: ghcr.io/telemt/telemt:latest
+    container_name: telemt_proxy
     restart: unless-stopped
     ports:
-      - "8443:3128"
-    environment:
-      - MTG_SECRET=${TG_SECRET}
-      - MTG_BIND_ADR=0.0.0.0:3128
-    command: run
-
+      - "8443:443"
+    volumes:
+      - ./telemt-config/config.toml:/etc/telemt/config.toml:ro
+    cap_add:
+      - NET_BIND_SERVICE
+    read_only: true
+    tmpfs:
+      - /tmp:rw,nosuid,nodev,noexec,size=16m
