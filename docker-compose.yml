@@ -6,7 +6,4 @@ services:
     restart: unless-stopped
     ports:
       - "8443:3128"
-    command: run "${TG_SECRET}"
-
-
-
+    command: run -s "${TG_SECRET}" -a 0.0.0.0:3128
